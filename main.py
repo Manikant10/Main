@@ -35,7 +35,6 @@ y=df[' loan_status']
 # In[6]:
 
 
-X=pd.get_dummies(X)
 
 
 # In[7]:
