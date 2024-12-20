@@ -154,7 +154,7 @@ def predict():
         data=request.get_json()
         input_data=data.get('inputData')
 
-        If not input_data:
+        if not input_data:
             return jsonify({"error": "Input data is required"})
 
         formatted_data=[list(input_data.values())]
