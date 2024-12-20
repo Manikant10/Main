@@ -164,8 +164,6 @@ if __name__ == '__main__':
 # In[ ]:
 
 
-jupyter nbconvert --to script main.ipynb
-
 
 # In[ ]:
 
