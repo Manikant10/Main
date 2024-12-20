@@ -141,7 +141,7 @@ except Exception as e:
 from flask_cors import CORS
 from flask import Flask,request,jsonify
 import pickle 
-
+import numpy as np
 
 app=Flask(__name__)
 CORS(app)
@@ -157,7 +157,7 @@ def predict():
         if not input_data:
             return jsonify({"error": "Input data is required"})
 
-        formatted_data=[list(input_data.values())]
+        formatted_data=np.array[list(input_data.values())]
         prediction=model.predict([formatted_data])
         return jsonify({"prediction": prediction.tolist()})
     except Exception as e:
