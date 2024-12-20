@@ -68,8 +68,6 @@ m.fit(X_train,y_train)
 
 
 from sklearn.tree import DecisionTreeClassifier
-mode=DecisionTreeClassifier()
-mode.fit(X_train,y_train)
 
 
 # In[12]:
@@ -111,8 +109,9 @@ from sklearn.ensemble import RandomForestClassifier
 import joblib
 
 # Train a model
-model = RandomForestClassifier()
+model = DecisionTreeClassifier()
 model.fit(X_train,y_train)
+a_p=model.predict(X_train)
 
 
 # Save the model to a file
@@ -159,7 +158,7 @@ def predict():
 
         formatted_data=np.array[list(input_data.values())]
         prediction=model.predict([formatted_data])
-        return jsonify({"prediction": prediction.tolist()})
+        return jsonify({"prediction": a_p.tolist()})
     except Exception as e:
         return jsonify({"error": str(e)})
 
