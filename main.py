@@ -118,9 +118,6 @@ model.fit(X_train,y_train)
 joblib.dump(model, 'model.pkl')
 
 # Load the model from the file
-loaded_model = joblib.load('model.pkl')
-
-
 
 
 # In[17]:
@@ -129,7 +126,7 @@ loaded_model = joblib.load('model.pkl')
 import joblib
 
 try:
-    model = joblib.load('loan_model.pkl')
+    model = joblib.load('model.pkl')
 except Exception as e:
     print(f"Error loading model: {e}")
 
