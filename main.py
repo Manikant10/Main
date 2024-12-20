@@ -5,7 +5,7 @@
 
 
 import pandas as pd
-df=pd.read_csv("C:\\loan.csv")
+df=pd.read_csv("LOAN_UPDATED.csv")
 
 
 # In[2]:
