@@ -146,7 +146,7 @@ from flask import Flask,request,jsonify
 import pickle 
 
 app=Flask(__name__)
-app(CORS)
+CORS(app)
 
 from flask_cors import CORS
 
