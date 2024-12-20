@@ -113,6 +113,7 @@ import joblib
 # Train a model
 model = RandomForestClassifier()
 model.fit(X_train,y_train)
+prediction=model.predict(X_train)
 
 # Save the model to a file
 joblib.dump(model, 'model.pkl')
