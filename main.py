@@ -113,7 +113,7 @@ import joblib
 # Train a model
 model = RandomForestClassifier()
 model.fit(X_train,y_train)
-y_p=model.predict(X_train)
+
 # Save the model to a file
 joblib.dump(model, 'model.pkl')
 
@@ -153,7 +153,7 @@ def predict():
         data=request.get_json()
         input_data=data.get('inputData')
         prediction=model.prediction([input_data])
-        return jsonify({"prediction": prediction.y_p})
+        return jsonify({"prediction": prediction.tolist()})
     except Exception as e:
         return jsonify({"error": str(e)})
 
