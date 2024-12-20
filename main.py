@@ -137,8 +137,6 @@ except Exception as e:
 # In[18]:
 
 
-pip install Flask-Cors
-
 
 # In[ ]:
 
