@@ -113,7 +113,7 @@ import joblib
 # Train a model
 model = RandomForestClassifier()
 model.fit(X_train,y_train)
-
+y_p=model.predict(X_train)
 # Save the model to a file
 joblib.dump(model, 'model.pkl')
 
@@ -123,7 +123,6 @@ joblib.dump(model, 'model.pkl')
 # In[17]:
 
 
-import joblib
 
 try:
     model = joblib.load('model.pkl')
@@ -142,10 +141,10 @@ from flask_cors import CORS
 from flask import Flask,request,jsonify
 import pickle 
 
+
 app=Flask(__name__)
 CORS(app)
 
-from flask_cors import CORS
 
 model=pickle.load(open('model.pkl','rb'))
 @app.route('/predict', methods=['POST'])
@@ -154,49 +153,17 @@ def predict():
         data=request.get_json()
         input_data=data.get('inputData')
         prediction=model.prediction([input_data])
-        return jsonify({"prediction": prediction.tolist()})
+        return jsonify({"prediction": prediction.y_p})
     except Exception as e:
         return jsonify({"error": str(e)})
 
 if __name__ =='__main__':
-    app.run(host='0.0.0.0', port=200)
+    app.run(host='0.0.0.0', port=5000)
 
 
 # In[ ]:
 
 
-import joblib
-from flask import Flask, jsonify, request
-
-app = Flask(__name__)
-model
-# Try to load the model
-try:
-    model = joblib.load('iris_model.pkl')
-except Exception as e:
-    print(f"Error loading model: {e}")
-    model = None  # Set to None or handle accordingly
-
-@app.route('/predict', methods=['POST'])
-def a_p():
-    if model is None:
-        return jsonify({'error': 'Model failed to load'}), 500
-
-    try:
-        # Assume the input is JSON with 'features' key
-        data = request.get_json()
-        features = X
-
-        prediction = model.predict(X)
-        return jsonify({'prediction': prediction[0]})
-    except Exception as e:
-        return jsonify({'error': str(e)}), 400  # Handle input or prediction error
-
-if __name__ == '__main__':
-    try:
-        app.run(debug=True, use_reloader=False)
-    except SystemExit as e:
-        print(f"SystemExit: {e}")
 
 
 # In[ ]:
