@@ -87,7 +87,6 @@ m.score(X_test,y_test)
 # In[14]:
 
 
-mode.score(X_test,y_test)
 
 
 # In[15]:
