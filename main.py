@@ -8,8 +8,8 @@
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import LabelEncoder
+from sklearn.tree import DecisionTreeRegression
+
 import joblib
 from flask import Flask, request, jsonify
 
@@ -20,12 +20,6 @@ data = pd.read_csv("LOAN_UPDATED.csv")
 # Handle missing values
 data.fillna(method='ffill', inplace=True)
 
-# Encode categorical variables
-label_encoders = {}
-for column in data.select_dtypes(include=['object']).columns:
-    le = LabelEncoder()
-    data[column] = le.fit_transform(data[column])
-    label_encoders[column] = le
 
 # Define features and target variable
 X = data.drop(['loan_id',' loan_status'], axis=1)  # Replace 'Loan_Status' with your target column
@@ -35,10 +29,9 @@ y = data[' loan_status']  # Replace 'Loan_Status' with your target column
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Step 2: Train the model
-model = RandomForestClassifier()
+model = DecisionTreeRegression()
 model.fit(X_train, y_train)
-def predict():
-    model.predict()
+
 
 
 # Step 3: Save the model
