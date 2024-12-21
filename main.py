@@ -58,7 +58,7 @@ def predict():
     try:
         # Create a DataFrame with properly structured input
         input_data = pd.DataFrame([{
-            'dependents': data.get(dependents', 0),
+            'dependents': data.get('dependents', 0),
             'education': data.get('education', ''),
             'self_employed': data.get('self_employed', ''),
             'annual_income': data.get('annual_income', 0),
