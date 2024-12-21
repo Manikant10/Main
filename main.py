@@ -52,7 +52,7 @@ def predict():
     data = request.get_json(force=True)
     
     # Convert input data to DataFrame
-    input_data = pd.DataFrame(data['features'], index=[0])
+    input_data = pd.DataFrame(data[X], index=[0])
     
     # Make prediction
     prediction = model.predict(input_data)
