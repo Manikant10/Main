@@ -58,22 +58,21 @@ def predict():
     try:
         # Create a DataFrame with properly structured input
         input_data = pd.DataFrame([{
-            'no_of_dependents': data.get('no_of_dependents', 0),
+            'dependents': data.get(dependents', 0),
             'education': data.get('education', ''),
             'self_employed': data.get('self_employed', ''),
-            'income_annum': data.get('income_annum', 0),
+            'annual_income': data.get('annual_income', 0),
             'loan_amount': data.get('loan_amount', 0),
             'loan_term': data.get('loan_term', 0),
             'cibil_score': data.get('cibil_score', 0),
-            'residential_assets_value': data.get('residential_assets_value', 0),
-            'commercial_assets_value': data.get('commercial_assets_value', 0),
-            'luxury_assets_value': data.get('luxury_assets_value', 0),
-            'bank_asset_value': data.get('bank_asset_value', 0),
+            'residential_assets': data.get('residential_assets', 0),
+            'commercial_assets': data.get('commercial_assets', 0),
+            'luxury_assets': data.get('luxury_assets', 0),
+            'bank_assets': data.get('bank_asset', 0),
         }])
 
         # Handle categorical feature encoding
-        if 'education' in label_encoders:
-            input_data['education'] = label_encoders['education'].transform([input_data['education'][0]])
+       
 
     except Exception as e:
         print(f"An error occurred: {e}")
