@@ -52,8 +52,8 @@ def predict():
         }])
 
         # Encode categorical features
-        input_data['education'] = input_data['education'].map({' Graduate': 1, ' Not Graduate': 0}).fillna(0)
-        input_data['self_employed'] = input_data['self_employed'].map({' Yes': 1, ' No': 0}).fillna(0)
+        input_data['education'] = input_data['education'].map({' Graduate': 1, ' Not Graduate': 0})
+        input_data['self_employed'] = input_data['self_employed'].map({' Yes': 1, ' No': 0})
 
         # Make prediction
         prediction = model.predict(input_data)
