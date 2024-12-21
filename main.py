@@ -37,6 +37,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Step 2: Train the model
 model = RandomForestClassifier()
 model.fit(X_train, y_train)
+def predict():
+    model.predict()
+
 
 # Step 3: Save the model
 joblib.dump(model, 'loan_prediction_model.pkl')
