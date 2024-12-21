@@ -1,4 +1,4 @@
-loan_id,dependents,education,self_employed,annual_income,loan_amount,loan_term,cibil_score,residential_assets,commercial_assets,luxury_assets,bank_assets, loan_status
+loan_id,dependents,education,self_employed,annual_income,loan_amount,loan_term,cibil_score,residential_assets,commercial_assets,luxury_assets,bank_assets,loan_status
 1,2,1,0,9600000,29900000,12,778,2400000,17600000,22700000,8000000,1
 2,0,0,1,4100000,12200000,8,417,2700000,2200000,8800000,3300000,0
 3,3,1,0,9100000,29700000,20,506,7100000,4500000,33300000,12800000,0
