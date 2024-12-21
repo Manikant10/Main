@@ -1,6 +1,6 @@
 pandas
 flask
 scikit-learn
-numpy
+pickle
 gunicorn
 flask_cors
