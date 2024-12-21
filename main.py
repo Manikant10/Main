@@ -19,8 +19,7 @@ data = pd.read_csv("1111.csv")
 # Example preprocessing (you may need to adjust this based on your dataset)
 # Handle missing values
 data.fillna(method='ffill', inplace=True)
-input_data['education'] = input_data['education'].map({'Graduate': 1, 'Not Graduate': 0})
-input_data['self_employed'] = input_data['self_employed'].map({'Yes': 1, 'No': 0})
+
 
 # Define features and target variable
 X = data.drop('loan_status', axis=1)  # Replace 'Loan_Status' with your target column
@@ -66,7 +65,8 @@ def predict():
         }])
 
         # Handle categorical feature encoding
-       
+input_data['education'] = input_data['education'].map({'Graduate': 1, 'Not Graduate': 0})
+input_data['self_employed'] = input_data['self_employed'].map({'Yes': 1, 'No': 0})       
 
     except Exception as e:
         print(f"An error occurred: {e}")
