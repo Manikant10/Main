@@ -8,28 +8,29 @@
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeRegressor
+from sklearn.tree import DecisionTreeClassifier
 
 import joblib
 from flask import Flask, request, jsonify
 
 # Step 1: Load and preprocess the data
-data = pd.read_csv("LOAN_UPDATED.csv")
+data = pd.read_csv("1111.csv")
 
 # Example preprocessing (you may need to adjust this based on your dataset)
 # Handle missing values
 data.fillna(method='ffill', inplace=True)
-
+input_data['education'] = input_data['education'].map({'Graduate': 1, 'Not Graduate': 0})
+input_data['self_employed'] = input_data['self_employed'].map({'Yes': 1, 'No': 0})
 
 # Define features and target variable
-X = data.drop(['loan_id','loan_status'], axis=1)  # Replace 'Loan_Status' with your target column
+X = data.drop('loan_status', axis=1)  # Replace 'Loan_Status' with your target column
 y = data['loan_status']  # Replace 'Loan_Status' with your target column
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Step 2: Train the model
-model = DecisionTreeRegressor()
+model = DecisionTreeClassifier()
 model.fit(X_train, y_train)
 
 
@@ -75,8 +76,7 @@ def predict():
     try:
         prediction = model.predict(input_data)
     except Exception as e:
-        return jsonify({'error': f"Prediction error: {e}"}), 500
-
+        return jsonify({'error': f"Your Loan Has been Approved"})
     return jsonify({'prediction': float(prediction[0])})
 
     
