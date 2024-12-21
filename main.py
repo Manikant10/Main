@@ -14,7 +14,7 @@ import joblib
 from flask import Flask, request, jsonify
 
 # Step 1: Load and preprocess the data
-data = pd.read_csv("C:\\Users\\manic\\OneDrive\\Dokumen\\LOAN_UPDATED.csv")
+data = pd.read_csv("LOAN_UPDATED.csv")
 
 # Example preprocessing (you may need to adjust this based on your dataset)
 # Handle missing values
