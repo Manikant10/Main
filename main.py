@@ -22,8 +22,8 @@ data.fillna(method='ffill', inplace=True)
 
 
 # Define features and target variable
-X = data.drop(['loan_id',' loan_status'], axis=1)  # Replace 'Loan_Status' with your target column
-y = data[' loan_status']  # Replace 'Loan_Status' with your target column
+X = data.drop(['loan_id','loan_status'], axis=1)  # Replace 'Loan_Status' with your target column
+y = data['loan_status']  # Replace 'Loan_Status' with your target column
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
