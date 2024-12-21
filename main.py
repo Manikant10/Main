@@ -52,7 +52,7 @@ def predict():
     data = request.get_json(force=True)
     
     # Convert input data to DataFrame
-try:
+    try:
         # Create a DataFrame with properly structured input
         input_data = pd.DataFrame([{
             'no_of_dependents': data['no_of_dependents'],
