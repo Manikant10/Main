@@ -110,7 +110,6 @@ import joblib
 # Train a model
 model = DecisionTreeClassifier()
 model.fit(X_train,y_train)
-a_p=model.predict(X_train)
 
 
 # Save the model to a file
@@ -155,9 +154,9 @@ def predict():
         if not input_data:
             return jsonify({"error": "Input data is required"})
 
-        formatted_data=np.array[list(input_data.values())]
+        formatted_data=np.array([list(input_data.values())])
         prediction=model.predict([formatted_data])
-        return jsonify({"prediction": a_p.tolist()})
+        return jsonify({"prediction": prediction.tolist()})
     except Exception as e:
         return jsonify({"error": str(e)})
 
