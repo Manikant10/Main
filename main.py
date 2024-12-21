@@ -77,7 +77,7 @@ def predict():
     except Exception as e:
         return jsonify({'error': f"Prediction error: {e}"}), 500
 
-    return jsonify({'prediction': prediction[0]})
+    return jsonify({'prediction': float(prediction[0])})
 
     
     # Make prediction
