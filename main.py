@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 
 # Load the dataset
-data = pd.read_csv('LOAN_UPDATED.csv')
+data = pd.read_csv('1111.csv')
 
 # Separate features and target variable
 X = data.drop(' loan_status', axis=1)
