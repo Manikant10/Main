@@ -52,7 +52,19 @@ def predict():
     data = request.get_json(force=True)
     
     # Convert input data to DataFrame
-    input_data = pd.DataFrame(data[' no_of_dependents', ' education', ' self_employed', ' income_annum', ' loan_amount', ' loan_term', ' cibil_score',' residential_assets_value', ' commercial_assets_value',' luxury_assets_value', ' bank_asset_value'], index=[0])
+input_data = pd.DataFrame([{
+            'no_of_dependents': data['no_of_dependents'],
+            'education': data['education'],
+            'self_employed': data['self_employed'],
+            'income_annum': data['income_annum'],
+            'loan_amount': data['loan_amount'],
+            'loan_term': data['loan_term'],
+            'cibil_score': data['cibil_score'],
+            'residential_assets_value': data['residential_assets_value'],
+            'commercial_assets_value': data['commercial_assets_value'],
+            'luxury_assets_value': data['luxury_assets_value'],
+            'bank_asset_value': data['bank_asset_value'],
+        }])
     
     # Make prediction
     prediction = model.predict(input_data)
