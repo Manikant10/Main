@@ -8,7 +8,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeRegression
+from sklearn.tree import DecisionTreeRegressor
 
 import joblib
 from flask import Flask, request, jsonify
@@ -29,7 +29,7 @@ y = data[' loan_status']  # Replace 'Loan_Status' with your target column
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Step 2: Train the model
-model = DecisionTreeRegression()
+model = DecisionTreeRegressor()
 model.fit(X_train, y_train)
 
 
