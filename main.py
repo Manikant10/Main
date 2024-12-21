@@ -68,7 +68,7 @@ def predict():
             'residential_assets': data.get('residential_assets', 0),
             'commercial_assets': data.get('commercial_assets', 0),
             'luxury_assets': data.get('luxury_assets', 0),
-            'bank_assets': data.get('bank_asset', 0),
+            'bank_assets': data.get('bank_assets', 0),
         }])
 
         # Handle categorical feature encoding
