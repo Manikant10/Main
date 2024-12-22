@@ -734,6 +734,7 @@ def show_entry():
 
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import CORS library
 import joblib  # or pickle
 import numpy as np
 
@@ -742,7 +743,7 @@ model = joblib.load('loan_prediction_model.pkl')
 
 # Create Flask app
 app = Flask(__name__)
-
+CORS(app)
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
