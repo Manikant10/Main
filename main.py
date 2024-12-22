@@ -581,7 +581,7 @@ y = data['Loan_Status']
 # In[100]:
 
 
-dr = DecisionTreeClassifier()
+dr = RandomForestClassifier()
 
 # In[102]:
 
