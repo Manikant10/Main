@@ -541,30 +541,6 @@ rs_svc.best_params_
 # In[85]:
 
 
-rf_grid = {'n_estimators':np.arange(10,1000,10),
-           'max_features':['log2','sqrt'],
-           'max_depth':[None,3,5,10,20,30],
-           'min_samples_split':[2,5,20,50,100],
-           'min_samples_leaf':[1,2,5,10]
-          }
-
-
-# In[86]:
-
-
-rs_rf = RandomizedSearchCV(RandomForestClassifier(),
-                  param_distributions = rf_grid,
-                  cv=5,
-                  n_iter=20,
-                  verbose=True)
-
-
-# In[87]:
-
-
-rs_rf.fit(X,y)
-
-
 # In[88]:
 
 
@@ -605,17 +581,12 @@ y = data['Loan_Status']
 # In[100]:
 
 
-rf = RandomForestClassifier(n_estimators = 270,
-                            min_samples_split = 5,
-                            min_samples_leaf = 5,
-                            max_features = 'sqrt',
-                            max_depth = 5)
-
+dr = DecisionTreeClassifier()
 
 # In[102]:
 
 
-rf.fit(X,y)
+dr.fit(X,y)
 
 
 # #### Saving our model, so that we've don't have to train it again.
@@ -631,7 +602,7 @@ import joblib
 
 # saving our model by passing an instance of our model and giving it a name.
 
-joblib.dump(rf,'loan_status_predictor_model')
+joblib.dump(dr,'loan_status_predictor_model')
 
 
 # In[ ]:
