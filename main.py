@@ -568,13 +568,11 @@ rs_rf.fit(X,y)
 # In[88]:
 
 
-rs_rf.best_score_
 
 
 # In[89]:
 
 
-rs_rf.best_params_
 
 
 # In[93]:
