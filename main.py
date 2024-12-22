@@ -688,46 +688,7 @@ else:
 # In[ ]:
 
 
-from tkinter import *
-import joblib
-import pandas as pd
 
-
-# In[ ]:
-
-
-def show_entry():
-    
-    p1 = float(e1.get())
-    p2 = float(e2.get())
-    p3 = float(e3.get())
-    p4 = float(e4.get())
-    p5 = float(e5.get())
-    p6 = float(e6.get())
-    p7 = float(e7.get())
-    p8 = float(e8.get())
-    p9 = float(e9.get())
-    p10 = float(e10.get())
-    p11 = float(e11.get())
-    
-    model = joblib.load('loan_status_predictor_model')
-    
-    df = pd.DataFrame({
-    'Gender':p1,
-    'Married':p2,
-    'Dependents':p3,
-    'Education':p4,
-    'Self_Employed':p5,
-    'ApplicantIncome':p6,
-    'CoapplicantIncome':p7,
-    'LoanAmount':p8,
-    'Loan_Amount_Term':p9,
-    'Credit_History':p10,
-    'Property_Area':p11
-},index=[0])
-    
-    result = model.predict(df)
-    
     
 
 
@@ -760,7 +721,6 @@ def predict():
         return jsonify({'error': str(e)})
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=5000)
 
 
